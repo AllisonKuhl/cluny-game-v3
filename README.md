@@ -1,2 +1,2 @@
 # cluny-game-v3
-Version three of my cluny game!! Now with graphics!
+I am making a game about the Abbey of Cluny! Now with graphics. 
