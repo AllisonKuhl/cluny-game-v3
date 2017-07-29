@@ -16,7 +16,7 @@ So after filling a rectangle up with the blocks of your choice, you now have a m
 
 # Open up the csv in Notepad ++. 
 
-Now, open your csv in a text editor of your choice. Preferable Notepad++, but as long as it has a good search and replace tool it's fine. 
+Now, open your csv in a text editor of your choice. Preferably Notepad++, but as long as it has a good search and replace tool it's fine. 
 
 Your search will be for: \r\n
 (Also, make sure that extended search is on! This is not just your basic search here. This is advanced searching.)
