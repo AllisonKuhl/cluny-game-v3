@@ -25,26 +25,26 @@ You will replace it with: ],\n[
 
 Alright, go ahead and replace all. Now you should have something whose first lines looks something like this: 
 
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],<br>
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 
 Now at the top of file, on the very first line, type: var map = [[
 
 It should look like:
 
-var map = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+var map = [[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],<br>
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 
 Now go to the end of the file. It will look something like this: 
 
-[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],<br>
 [
 
 Delete those last two characters there, we don't want them, they are garbage. Replace them with a nice conclusive ];
 
 So now we have, on the final line of our file: 
 
-[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]<br>
 ];
 
 Beautiful. A beautifully formated array of arrays.  
