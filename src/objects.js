@@ -72,28 +72,30 @@ var createSpriteArray = function()
 				row +=40;
 			
 			//grass
-			if (map[i][j] == "G"){
+			if (map[i][j] == 1){
 				tiles.push(new spriteObject(80,0,row,column,40,40,false));
 			}
 			
 			//floor
-			if (map[i][j] ==  "F"){
+			if (map[i][j] ==  2){
 				tiles.push(new spriteObject(40,0,row,column,40,40,false));
 			}
 			//wall	
-			if (map[i][j] == "W"){
+			if (map[i][j] == 3){
 				tiles.push(new spriteObject(0,0,row,column,40,40,true));
 			}
 			
+			//water
+			if (map[i][j] == "4"){
+				tiles.push(new spriteObject(40,40,row, column,40,40,true));
+			}
+			
 			//wood
-			if (map[i][j] == "D"){
+			if (map[i][j] == 5){
 				tiles.push(new spriteObject(0,40,row,column,40,40,true));
 			}
 			
-			//water
-			if (map[i][j] == "B"){
-				tiles.push(new spriteObject(40,40,row, column,40,40,true));
-			}
+			
 		}		
 	}
 
