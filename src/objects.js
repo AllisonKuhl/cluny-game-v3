@@ -1,5 +1,7 @@
 //--- The sprite object
 
+
+
 function spriteObject(sx,sy,x,y,width,height, solid){
   this.state = 0;
   this.sourceX = sx;
@@ -35,6 +37,24 @@ function spriteObject(sx,sy,x,y,width,height, solid){
 }
 
 
+function Button(x,y,width,height,txt, colour, action){
+
+  spriteObject.call(this,x,y,x,y,width,height,false);
+  this.txt = txt;
+  this.colour = colour;
+  this.action = action;
+  	
+}
+
+
+var startBackground = new spriteObject(180,0,0,0,704,512,false);
+var startButtons = [];
+
+startButtons.push(new Button(100,390,200,100,"Explore","goldenrod",(function () {gameState = PLAYING;})));
+
+startButtons.push(new Button(400,390,200,100,"Pray","goldenrod",(function () {gameState = PRAYING;})));
+
+
 
 function Monk() {
 	spriteObject.call(this,80,40,0,0,25,35,true);
@@ -56,6 +76,7 @@ function Monk() {
   };
    
 }
+
 
 var tiles = [];
 

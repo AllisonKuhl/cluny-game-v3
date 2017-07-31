@@ -1,10 +1,10 @@
+//should eventually add loading screen...
 
-//when document is loaded... 
-
-//display main screen
-
-//when clicked... play game! 
-
+var LOADING = 0;
+var STARTPAGE = 1;
+var PLAYING = 2;
+var PRAYING = 3;
+var gameState = STARTPAGE;
 
 //The canvas
 var canvas = document.querySelector("canvas"); 
@@ -22,7 +22,104 @@ img.src = "./images/spritesheet.png";
         createSpriteArray();
 	
  };
+ 
+/* 
+
+may use this for mouse events in the future??
+probably not though
+
+ var mouseX = 0;
+ var mouseY = 0;
+
+ canvas.addEventListener("mousemove",function(event){
+	 mouseX = event.pageX - canvas.offsetLeft;
+	 mouseY = event.pageY- canvas.offsetTop;
+ }, false);
+ */
+ 
+ 
+ //deals with click events. 
+ //for now just used in start page
+ 
+ canvas.addEventListener("click",function(event){
+	 
+	if (gameState = STARTPAGE){
+	   for (i=0; i< startButtons.length;i++){
+		  if (hitTestPoint(event.pageX,event.pageY,startButtons[i])){
+			   startButtons[i].action();		  
+		  }		  
+	  }	
+	}
+ }, false);
+ 
+
+//this is the main part here! It updates over and over again checking if anything has happened to the game.
+ function update()
+{ 
+
+   //The animation loop
+  requestAnimationFrame(update, canvas);
+
+  
+  if (gameState == STARTPAGE){
+	  //draw start menu
+	  renderStart();
+	 	  
+  }
+  
+  else if (gameState == PLAYING){
+	  //deal with player interaction
+	  move();  
+	  //move camera
+	  moveCamera();	  
+	  //draw the game
+	  render();
+  }
 	  
+   else if (gameState == PRAYING){
+	  //start praying mini-game
+	  ctx.clearRect(0, 0, canvas.width, canvas.height);
+	  ctx.fillText("Coming soon!",100,200);
+  }
+  
+  
+   
+}
+
+//creates start menu
+function renderStart(){
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	    //background image
+		ctx.drawImage(img,
+		startBackground.sourceX,
+		startBackground.sourceY,
+		startBackground.width,
+		startBackground.height,
+		startBackground.x,
+		startBackground.y,
+		startBackground.width,
+		startBackground.height);
+	
+	
+	//draws the buttons
+    for (i = 0; i< startButtons.length;i++){
+		
+		sButton = startButtons[i];
+		// Green rectangle
+		ctx.beginPath();
+		ctx.rect(sButton.x, sButton.y, sButton.width, sButton.height);
+		ctx.fillStyle = sButton.colour;
+		ctx.fill();
+		
+		ctx.fillStyle = "black";
+		ctx.font = "40px Arial";
+		ctx.fillText(sButton.txt,sButton.x+40,sButton.y+60);
+		
+	} 
+}
+
+//draws background of monastary	  
 function drawBackground() {
  
 	for (i = 0; i< tiles.length; i++){
@@ -40,25 +137,7 @@ function drawBackground() {
 	 
 }
 
- function update()
-{ 
-  //The animation loop
-  requestAnimationFrame(update, canvas);
-  
-  //deal with player interaction
-  move();
-  
-  //move camera
-  moveCamera();
-  
-  //draw the game
-  render();
-
-   
-}
-
-
-
+//draws monk and background
 function render()
 { 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -87,6 +166,5 @@ function render()
   
 }
 
-
-  
+//game loop
 update();

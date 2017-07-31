@@ -119,7 +119,6 @@ var collision = function(){
 
 var canvas = document.querySelector("canvas"); 
 
-console.log(map);
 
 var gameWorld = {
 	x:0,

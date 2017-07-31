@@ -4,8 +4,8 @@
 function hitTestPoint(pointX, pointY, sprite)
 {  
   var hit 
-    = pointX > sprite.left() && pointX < sprite.right()
-    && pointY > sprite.top() && pointY < sprite.bottom();
+    = pointX > sprite.x && pointX < sprite.x + sprite.width
+    && pointY > sprite.y && pointY < sprite.y + sprite.height;
     
   return hit;
 }
