@@ -23,6 +23,8 @@ img.src = "./images/spritesheet.png";
 	
  };
  
+
+ 
 /* 
 
 may use this for mouse events in the future??
@@ -43,7 +45,7 @@ probably not though
  
  canvas.addEventListener("click",function(event){
 	 
-	if (gameState = STARTPAGE){
+	if (gameState == STARTPAGE){
 	   for (i=0; i< startButtons.length;i++){
 		  if (hitTestPoint(event.pageX,event.pageY,startButtons[i])){
 			   startButtons[i].action();		  
@@ -78,8 +80,7 @@ probably not though
 	  
    else if (gameState == PRAYING){
 	  //start praying mini-game
-	  ctx.clearRect(0, 0, canvas.width, canvas.height);
-	  ctx.fillText("Coming soon!",100,200);
+	  drawTypingGame();
   }
   
   
@@ -120,7 +121,7 @@ function renderStart(){
 }
 
 //draws background of monastary	  
-function drawBackground() {
+function drawBackgroundMain() {
  
 	for (i = 0; i< tiles.length; i++){
 		
@@ -137,6 +138,38 @@ function drawBackground() {
 	 
 }
 
+window.addEventListener("keydown", function(event)
+{
+	if (gameState == PRAYING){
+		if (event.keyCode == 32 || event.keyCode ==13){//SPACE KEY or ENTER key
+			textbox= "";
+		}else if (event.keyCode >= 65 && event.keyCode <= 90){
+			textbox+=String.fromCharCode(event.keyCode);
+		}
+	
+	}
+}, false);
+
+var textbox = "";
+var whichVerse = 0;
+
+function drawTypingGame(){
+	  ctx.clearRect(0, 0, canvas.width, canvas.height);
+	  
+	  ctx.textAlign="left";
+	  ctx.textAlign="top";
+      ctx.font = "40px Arial";	  
+	  ctx.fillText("Coming soon!",220,100);
+	
+	  //text box
+	  ctx.rect(200, 200, 300, 50);
+	  ctx.stroke();
+	  ctx.font = "30px Arial";
+	  ctx.fillText(textbox,200,240);
+	
+}
+
+
 //draws monk and background
 function render()
 { 
@@ -148,7 +181,7 @@ function render()
   ctx.translate(-camera.x, -camera.y);
   
    
- drawBackground();
+ drawBackgroundMain();
  
  //draw monk on top of background
  ctx.drawImage(img,
