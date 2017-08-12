@@ -2,6 +2,8 @@
 
 
 
+
+
 function spriteObject(sx,sy,x,y,width,height, solid){
   this.state = 0;
   this.sourceX = sx;
@@ -33,6 +35,10 @@ function spriteObject(sx,sy,x,y,width,height, solid){
   {
     return this.height / 2;
   };
+  
+  this.switchState = function(state){
+	  this.state = state;
+  }
 	
 }
 
@@ -53,6 +59,7 @@ var startButtons = [];
 startButtons.push(new Button(100,390,200,100,"Explore","goldenrod",(function () {gameState = PLAYING;})));
 
 startButtons.push(new Button(400,390,200,100,"Pray","goldenrod",(function () {gameState = PRAYING;})));
+
 
 
 
@@ -125,3 +132,4 @@ var createSpriteArray = function()
 
 var monk = new Monk(80,40,25,35,true);
 
+var prayBackground = new spriteObject(884,0,0,0,704,512,false);
